@@ -514,7 +514,7 @@ const Team = () => (
         <div className="flex justify-center">
           <div className="w-64 text-center">
             <img 
-              src="src/assets/img/team/team1.jpg" 
+              src="./src/assets/img/team/team1.jpg" 
               alt="Dr. Prashobhan Palakkeel" 
               className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
             />
