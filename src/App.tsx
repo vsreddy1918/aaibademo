@@ -1,62 +1,161 @@
 import React from 'react';
-import { Brain, Code, Database, Dna, FlaskRound, GraduationCap, Microscope, Rocket, Users, Linkedin, BookOpen, Clock } from 'lucide-react';
+import { Brain, Code, Database, Dna, FlaskRound, GraduationCap, Microscope, Rocket, Users, Linkedin, BookOpen, Clock, X, Menu } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 // Components
 const Header = () => {
   const location = useLocation();
   const [isCoursesOpen, setIsCoursesOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
-          <Brain className="w-8 h-8 text-blue-600" />
-          <span className="text-2xl font-bold text-gray-900">AAIBA</span>
-        </Link>
-        
-        <nav className="hidden md:flex space-x-8">
-          <Link to="/" className={`${
-            location.pathname === '/' 
-              ? 'text-blue-600 font-semibold' 
-              : 'text-gray-600'
-          } hover:text-blue-600 transition-colors`}>
-            Home
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center space-x-2">
+            <Brain className="w-8 h-8 text-blue-600" />
+            <span className="text-2xl font-bold text-gray-900">AAIBA</span>
           </Link>
-          <Link to="/about" className={`${location.pathname === '/about' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>About</Link>
-          <Link to="/what-we-do" className={`${location.pathname === '/what-we-do' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>What We Do</Link>
-          <div className="relative">
-            <button 
-              className={`${location.pathname.startsWith('/courses') ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors flex items-center`}
-              onMouseEnter={() => setIsCoursesOpen(true)}
-              onMouseLeave={() => setIsCoursesOpen(false)}
-            >
-              Courses
-              <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-            {isCoursesOpen && (
-              <div 
-                className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 mt-1"
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <Link to="/" className={`${location.pathname === '/' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+              Home
+            </Link>
+            <Link to="/about" className={`${location.pathname === '/about' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+              About
+            </Link>
+            <Link to="/what-we-do" className={`${location.pathname === '/what-we-do' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+              What We Do
+            </Link>
+            <div className="relative">
+              <button 
+                className={`${location.pathname.startsWith('/courses') ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors flex items-center`}
                 onMouseEnter={() => setIsCoursesOpen(true)}
                 onMouseLeave={() => setIsCoursesOpen(false)}
               >
-                <Link to="/courses" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 font-medium border-b border-gray-100">
-                  All Courses
-                </Link>
-                <div className="pt-2">
-                  <Link to="/courses/python" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Python</Link>
-                  <Link to="/courses/sql" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">SQL</Link>
-                  <Link to="/courses/power-bi" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Power BI</Link>
+                Courses
+                <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+              {isCoursesOpen && (
+                <div 
+                  className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 mt-1"
+                  onMouseEnter={() => setIsCoursesOpen(true)}
+                  onMouseLeave={() => setIsCoursesOpen(false)}
+                >
+                  <Link to="/courses" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                    All Courses
+                  </Link>
+                  <Link to="/courses/python" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                    Python
+                  </Link>
+                  <Link to="/courses/sql" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                    SQL
+                  </Link>
+                  <Link to="/courses/power-bi" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                    Power BI
+                  </Link>
+                </div>
+              )}
+            </div>
+            <Link to="/team" className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+              Team
+            </Link>
+            <Link to="/contact" className={`${location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+              Contact
+            </Link>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6 text-gray-600" />
+            ) : (
+              <Menu className="w-6 h-6 text-gray-600" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <nav className="md:hidden mt-4 py-4 border-t border-gray-100">
+            <div className="flex flex-col space-y-4">
+              <Link 
+                to="/" 
+                className={`${location.pathname === '/' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/about" 
+                className={`${location.pathname === '/about' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link 
+                to="/what-we-do" 
+                className={`${location.pathname === '/what-we-do' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                What We Do
+              </Link>
+              <div className="space-y-2">
+                <div className="font-medium text-gray-900">Courses</div>
+                <div className="pl-4 space-y-2">
+                  <Link 
+                    to="/courses" 
+                    className="block text-gray-600 hover:text-blue-600"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    All Courses
+                  </Link>
+                  <Link 
+                    to="/courses/python" 
+                    className="block text-gray-600 hover:text-blue-600"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Python
+                  </Link>
+                  <Link 
+                    to="/courses/sql" 
+                    className="block text-gray-600 hover:text-blue-600"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    SQL
+                  </Link>
+                  <Link 
+                    to="/courses/power-bi" 
+                    className="block text-gray-600 hover:text-blue-600"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Power BI
+                  </Link>
                 </div>
               </div>
-            )}
-          </div>
-          <Link to="/team" className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>Team</Link>
-          <Link to="/blog" className={`${location.pathname === '/blog' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>Blog</Link>
-          <Link to="/contact" className={`${location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>Contact</Link>
-        </nav>
+              <Link 
+                to="/team" 
+                className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Team
+              </Link>
+              <Link 
+                to="/contact" 
+                className={`${location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );
@@ -155,9 +254,9 @@ const About = () => (
             <h2 className="text-2xl font-bold mb-6">Message from Dean</h2>
             <div className="mb-6 flex justify-center">
               <div className="w-32 h-40 overflow-hidden">
-                <img 
-                  src="../img/nava.jpg"
-                  alt="Dr. Nava Subramaniam"
+              <img 
+                src="../img/nava.jpg"
+                alt="Dr. Nava Subramaniam"
                   className="w-full h-full object-cover object-center rounded-lg"
                 />
               </div>
@@ -337,43 +436,43 @@ const Contact = () => (
         <div className="lg:col-span-1">
           <div className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-            
-            <div className="space-y-6">
+          
+          <div className="space-y-6">
               {/* Location */}
-              <div className="flex items-start space-x-4">
-                <div className="p-2 bg-blue-100 rounded-lg">
-                  <Users className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="font-bold mb-2">Location:</h4>
-                  <p className="text-gray-600">
-                    AAIBA Lab<br />
-                    Amrita School of Business<br />
-                    Amrita University, Ettimadai,<br />
-                    Coimbatore, Tamil Nadu 641112
-                  </p>
-                </div>
+            <div className="flex items-start space-x-4">
+              <div className="p-2 bg-blue-100 rounded-lg">
+                <Users className="w-6 h-6 text-blue-600" />
               </div>
+              <div>
+                  <h4 className="font-bold mb-2">Location:</h4>
+                <p className="text-gray-600">
+                  AAIBA Lab<br />
+                  Amrita School of Business<br />
+                  Amrita University, Ettimadai,<br />
+                    Coimbatore, Tamil Nadu 641112
+                </p>
+              </div>
+            </div>
 
               {/* Email */}
-              <div className="flex items-start space-x-4">
-                <div className="p-2 bg-blue-100 rounded-lg">
-                  <Code className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
+            <div className="flex items-start space-x-4">
+              <div className="p-2 bg-blue-100 rounded-lg">
+                <Code className="w-6 h-6 text-blue-600" />
+              </div>
+              <div>
                   <h4 className="font-bold mb-2">Email:</h4>
                   <a href="mailto:info@aaibalab.com" className="text-gray-600 hover:text-blue-600">
                     info@aaibalab.com
                   </a>
                 </div>
-              </div>
+            </div>
 
               {/* Phone */}
-              <div className="flex items-start space-x-4">
-                <div className="p-2 bg-blue-100 rounded-lg">
-                  <Database className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
+            <div className="flex items-start space-x-4">
+              <div className="p-2 bg-blue-100 rounded-lg">
+                <Database className="w-6 h-6 text-blue-600" />
+              </div>
+              <div>
                   <h4 className="font-bold mb-2">Phone:</h4>
                   <a href="tel:+919848114989" className="text-gray-600 hover:text-blue-600">
                     +91 98481 14989
@@ -387,17 +486,17 @@ const Contact = () => (
         {/* Map */}
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-md h-full">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.1423732126805!2d76.90187519999999!3d10.904658299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85d004f5bc901%3A0x2f2e61941ac7ee98!2sAAIBA%20LAB!5e1!3m2!1sen!2sin!4v1737438818560!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.1423732126805!2d76.90187519999999!3d10.904658299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85d004f5bc901%3A0x2f2e61941ac7ee98!2sAAIBA%20LAB!5e1!3m2!1sen!2sin!4v1737438818560!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
               style={{ border: 0, minHeight: '400px' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg"
-            />
-          </div>
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-lg"
+          />
+        </div>
         </div>
       </div>
     </div>
