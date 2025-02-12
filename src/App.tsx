@@ -323,47 +323,47 @@ const WhatWeDo = () => (
             {
               title: "Data Analytics Consulting",
               description: "Providing expert guidance on leveraging data analytics to drive business decisions.",
-              icon: "src/assets/img/interview.png"
+              icon: "/assets/img/interview.png"
             },
             {
               title: "AI and Machine Learning Solutions",
               description: "Developing custom AI models and machine learning algorithms tailored to your needs.",
-              icon: "src/assets/img/ai.png"
+              icon: "/assets/img/ai.png"
             },
             {
               title: "Business Intelligence Tools",
               description: "Creating dashboards and tools to visualize and interpret business performance.",
-              icon: "src/assets/img/artificial-intelligence.png"
+              icon: "/assets/img/artificial-intelligence.png"
             },
             {
               title: "Process Automation",
               description: "Streamlining workflows and reducing manual effort through advanced automation techniques.",
-              icon: "src/assets/img/automated.png"
+              icon: "/assets/img/automated.png"
             },
             {
               title: "Cybersecurity Analytics",
               description: "Enhancing security measures using data-driven risk analysis and threat prediction.",
-              icon: "src/assets/img/cyber-security.png"
+              icon: "/assets/img/cyber-security.png"
             },
             {
               title: "Customer Insights and Engagement",
               description: "Analyzing customer data to personalize experiences and boost engagement.",
-              icon: "src/assets/img/analystics.png"
+              icon: "/assets/img/analystics.png"
             },
             {
               title: "Training and Workshops",
               description: "Providing hands-on training in data analytics, AI, and related technologies.",
-              icon: "src/assets/img/training.png"
+              icon: "/assets/img/training.png"
             },
             {
               title: "Cloud Computing Solutions",
               description: "Offering scalable cloud-based solutions to meet growing business demands.",
-              icon: "src/assets/img/server.png"
+              icon: "/assets/img/server.png"
             },
             {
               title: "Predictive Analytics",
               description: "Utilizing data models to forecast trends and inform strategic decisions.",
-              icon: "src/assets/img/predictive-chart.png"
+              icon: "/assets/img/predictive-chart.png"
             }
           ].map((service) => (
             <div 
@@ -531,7 +531,7 @@ const Team = () => (
         <div className="flex justify-center">
           <div className="w-64 text-center">
             <img 
-              src="./src/assets/img/team/team1.jpg" 
+              src=".//assets/img/team/team1.jpg" 
               alt="Dr. Prashobhan Palakkeel" 
               className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
             />
@@ -557,19 +557,19 @@ const Team = () => (
             {
               name: "Sachin Varriar",
               role: "Product Owner, TransUnion",
-              image: "src/assets/img/team/sachin.png",
+              image: "/assets/img/team/sachin.png",
               linkedin: "https://www.linkedin.com/in/sachinvarriar/"
             },
             {
               name: "Vishnu Kurup M K",
               role: "Product Manager, Affine",
-              image: "src/assets/img/team/vishnu.png",
+              image: "/assets/img/team/vishnu.png",
               linkedin: "https://www.linkedin.com/in/vishnukurupmk/"
             },
             {
               name: "Sreejith M T",
               role: "Analytics Consultant, Fractal",
-              image: "src/assets/img/team/sreejith.jpeg",
+              image: "/assets/img/team/sreejith.jpeg",
               linkedin: "https://www.linkedin.com/in/sreejithmt/"
             }
           ].map((mentor) => (
@@ -603,12 +603,12 @@ const Team = () => (
             {
               name: "Srinivasa Reddy",
               role: "President & Coordinator\nAnalyst",
-              image: "src/assets/img/team/sr.jpg"
+              image: "/assets/img/team/sr.jpg"
             },
             {
               name: "Sreyas",
               role: "Secretary\nAnalyst\nEx: UST Global",
-              image: "src/assets/img/team/sreyas.jpg"
+              image: "/assets/img/team/sreyas.jpg"
             }
           ].map((member) => (
             <div key={member.name} className="text-center">
@@ -632,27 +632,27 @@ const Team = () => (
             {
               name: "Harshitha Racharla",
               role: "Analyst\nEx: TCS",
-              image: "src/assets/img/team/harshitha.jpg"
+              image: "/assets/img/team/harshitha.jpg"
             },
             {
               name: "Nanda Gopan",
               role: "Analyst",
-              image: "src/assets/img/team/ng.jpg"
+              image: "/assets/img/team/ng.jpg"
             },
             {
               name: "Shruthi R Nair",
               role: "Analyst\nEx: Infosys",
-              image: "src/assets/img/team/Shruthi R Nair.jpg"
+              image: "/assets/img/team/Shruthi R Nair.jpg"
             },
             {
               name: "Arun Pandian",
               role: "Analyst",
-              image: "src/assets/img/team/Arun Pandian.jpg"
+              image: "/assets/img/team/Arun Pandian.jpg"
             },
             {
               name: "Ramesh Krishna",
               role: "Analyst\nEx: Cognizant",
-              image: "src/assets/img/team/rk.jpg"
+              image: "/assets/img/team/rk.jpg"
             }
           ].map((member) => (
             <div key={member.name} className="text-center">
@@ -677,7 +677,7 @@ const courseData = {
     title: "Python for Data Science",
     description: "Master Python programming with a focus on data science applications",
     duration: "4 weeks",
-    image: "src/assets/img/courses/python.jpg",
+    image: "/assets/img/courses/python.jpg",
     modules: [
       {
         title: "Introduction to Python",
@@ -712,7 +712,7 @@ const courseData = {
     title: "SQL for Data Analysis",
     description: "Learn database management and analysis using SQL",
     duration: "4 weeks",
-    image: "src/assets/img/courses/sql.jpg",
+    image: "/assets/img/courses/sql.jpg",
     modules: [
       {
         title: "SQL Fundamentals",
@@ -747,7 +747,7 @@ const courseData = {
     title: "Power BI for Business Intelligence",
     description: "Create powerful business intelligence solutions with Power BI",
     duration: "4 weeks",
-    image: "src/assets/img/courses/power-bi.jpg",
+    image: "/assets/img/courses/power-bi.jpg",
     modules: [
       {
         title: "Power BI Basics",
