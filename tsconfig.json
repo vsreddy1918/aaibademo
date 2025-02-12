@@ -6,11 +6,3 @@
   ],
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/types/*.d.ts"]
 }
-{
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ]
-}
