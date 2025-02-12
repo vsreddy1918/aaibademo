@@ -13,7 +13,11 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <Brain className="w-8 h-8 text-blue-600" />
+          <img 
+            src="src/img/apple-touch-icon.png"
+            alt="Logo"
+            className="w-10 h-10"
+          />
             <span className="text-2xl font-bold text-gray-900">AAIBA</span>
           </Link>
           
@@ -204,7 +208,11 @@ const About = () => (
           <div className="bg-white p-8 rounded-xl shadow-md">
             <div className="flex items-start space-x-6">
               <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
-                <Brain className="w-8 h-8 text-blue-600" />
+              <img 
+            src="src/img/vision.png"
+            alt="Vision"
+            className="w-10 h-10"
+          />
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-4">Vision</h3>
@@ -220,7 +228,11 @@ const About = () => (
           <div className="bg-white p-8 rounded-xl shadow-md">
             <div className="flex items-start space-x-6">
               <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
-                <Rocket className="w-8 h-8 text-blue-600" />
+              <img 
+            src="src/img/target.png"
+            alt="Mission"
+            className="w-10 h-10"
+          />
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-4">Mission</h3>
@@ -254,9 +266,9 @@ const About = () => (
             <h2 className="text-2xl font-bold mb-6">Message from Dean</h2>
             <div className="mb-6 flex justify-center">
               <div className="w-32 h-40 overflow-hidden">
-              <img 
-                src="../img/nava.jpg"
-                alt="Dr. Nava Subramaniam"
+                <img 
+                  src="src/assets/img/nava.jpg"
+                  alt="Dr. Nava Subramaniam"
                   className="w-full h-full object-cover object-center rounded-lg"
                 />
               </div>
