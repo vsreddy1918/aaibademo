@@ -2,6 +2,11 @@ import React from 'react';
 import { Brain, Code, Database, Dna, FlaskRound, GraduationCap, Microscope, Rocket, Users, Linkedin, BookOpen, Clock, X, Menu } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 
+// Import images if they are in the src directory
+import navaImage from './assets/img/nava.jpg';
+import visionImage from './assets/img/vision.png';
+import missionImage from './assets/img/target.png';
+
 // Components
 const Header = () => {
   const location = useLocation();
@@ -209,7 +214,7 @@ const About = () => (
             <div className="flex items-start space-x-6">
               <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
               <img 
-            src="src/img/vision.png"
+            src={visionImage}
             alt="Vision"
             className="w-10 h-10"
           />
@@ -229,7 +234,7 @@ const About = () => (
             <div className="flex items-start space-x-6">
               <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
               <img 
-            src="src/img/target.png"
+            src={missionImage}
             alt="Mission"
             className="w-10 h-10"
           />
@@ -267,7 +272,7 @@ const About = () => (
             <div className="mb-6 flex justify-center">
               <div className="w-32 h-40 overflow-hidden">
                 <img 
-                  src="src/assets/img/nava.jpg"
+                  src={navaImage}
                   alt="Dr. Nava Subramaniam"
                   className="w-full h-full object-cover object-center rounded-lg"
                 />
@@ -885,6 +890,11 @@ const CourseContent = ({ course }) => (
         </div>
       </div>
     </div>
+
+    {/* Additional images */}
+    <img src={navaImage} alt="Dr. Nava Subramaniam" className="w-full h-full object-cover object-center rounded-lg" />
+    <img src={visionImage} alt="Vision" className="w-10 h-10" />
+    <img src={missionImage} alt="Mission" className="w-10 h-10" />
   </div>
 );
 
