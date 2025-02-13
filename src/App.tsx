@@ -889,10 +889,6 @@ const CourseContent = ({ course }) => (
       </div>
     </div>
 
-    {/* Additional images */}
-    <img src={navaImage} alt="Dr. Nava Subramaniam" className="w-full h-full object-cover object-center rounded-lg" />
-    <img src={visionImage} alt="Vision" className="w-10 h-10" />
-    <img src={missionImage} alt="Mission" className="w-10 h-10" />
   </div>
 );
 
