@@ -3,9 +3,7 @@ import { Brain, Code, Database, Dna, FlaskRound, GraduationCap, Microscope, Rock
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 // Import images if they are in the src directory
-import navaImage from './assets/img/nava.jpg';
-import visionImage from './assets/img/vision.png';
-import missionImage from './assets/img/target.png';
+
 
 // Components
 const Header = () => {
@@ -214,7 +212,7 @@ const About = () => (
             <div className="flex items-start space-x-6">
               <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
               <img 
-            src={visionImage}
+            src="/assets/img/vision.png"
             alt="Vision"
             className="w-10 h-10"
           />
@@ -234,7 +232,7 @@ const About = () => (
             <div className="flex items-start space-x-6">
               <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
               <img 
-            src={missionImage}
+            src="/assets/img/target.png"
             alt="Mission"
             className="w-10 h-10"
           />
@@ -272,7 +270,7 @@ const About = () => (
             <div className="mb-6 flex justify-center">
               <div className="w-32 h-40 overflow-hidden">
                 <img 
-                  src={navaImage}
+                  src="/assets/img/nava.jpg"
                   alt="Dr. Nava Subramaniam"
                   className="w-full h-full object-cover object-center rounded-lg"
                 />
