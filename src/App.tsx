@@ -568,7 +568,7 @@ const Team = () => (
             },
             {
               name: "Sreejith M T",
-              role: "Analytics Consultant, Fractal",
+              role: "Assistant Manager, EY",
               image: "/assets/img/team/sreejith.jpeg",
               linkedin: "https://www.linkedin.com/in/sreejithmt/"
             }
