@@ -880,10 +880,13 @@ const CourseContent = ({ course }) => (
                 <h4 className="font-semibold text-gray-900">Resources</h4>
                 <p className="text-gray-600">Course materials and documentation provided</p>
               </div>
-              <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                onClick={() => window.location.href = "https://noteforms.com/forms/course-registration-form-2fpf1n"} 
-                Enroll Now
-              </button>
+             <button 
+  onClick={() => window.location.href = "https://noteforms.com/forms/course-registration-form-2fpf1n"} 
+  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+>
+  Enroll Now
+</button>
+
             </div>
           </div>
         </div>
