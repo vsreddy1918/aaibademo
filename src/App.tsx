@@ -1019,8 +1019,9 @@ const App = () => {
   const eventPhotos = [
     'https://bit.ly/3XcwnPi', // Replace with your actual image paths
     'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaHPalexhDy2cqYtXK3N5C1UO6LD89hSojTs0Hf',
-    'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaHFYiN0HOC0a5PW3xfhwpbKHd6AE7LiIYUQ41j',
+   
     'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaH7JHIBWdt2KCmTxRHVfaSzWpriXjQE9c8vn0w',
+    'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaHFYiN0HOC0a5PW3xfhwpbKHd6AE7LiIYUQ41j',
     
    // <!--'/img/event2.jpg',=-->
 
