@@ -534,7 +534,7 @@ const Team = () => (
               className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
             />
             <h3 className="text-xl font-bold mb-1">Dr. Prashobhan Palakkeel</h3>
-            <p className="text-gray-600 mb-2">AIBA, Area Chair, ASB</p>
+            <p className="text-gray-600 mb-2">Principal Analyst <br />AIBA, Area Chair, ASB</p>
             <a 
               href="https://palakkeel.com/" 
               className="text-blue-600 hover:text-blue-700 inline-flex items-center"
