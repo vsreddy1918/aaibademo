@@ -534,9 +534,26 @@ const Team = () => (
               className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
             />
             <h3 className="text-xl font-bold mb-1">Dr. Prashobhan Palakkeel</h3>
-            <p className="text-gray-600 mb-2">Principal Analyst, Mentor</p>
+            <p className="text-gray-600 mb-2">Principal Analyst, Mentor<br />AIBA, Area Chair, ASB</p>
             <a 
               href="https://palakkeel.com/" 
+              className="text-blue-600 hover:text-blue-700 inline-flex items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn More <span className="ml-1">→</span>
+            </a>
+          </div>
+          <div className="w-64 text-center">
+            <img 
+              src=".//assets/img/team/ajith.jpeg" 
+              alt="Ajith Sankaran" 
+              className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
+            />
+            <h3 className="text-xl font-bold mb-1">Ajith Sankaran</h3>
+            <p className="text-gray-600 mb-2">Adjust Professor of Practice,ASB <br/>Senior Vice President,C5i</p>
+            <a 
+              href="https://www.linkedin.com/in/ajithsankaran/" 
               className="text-blue-600 hover:text-blue-700 inline-flex items-center"
               target="_blank"
               rel="noopener noreferrer"
