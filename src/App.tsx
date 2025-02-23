@@ -15,17 +15,17 @@ const Header = () => {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <img 
             src="/assets/img/apple-touch-icon.png"
             alt="Logo"
             className="w-10 h-10"
           />
-            <span className="text-2xl font-bold text-gray-900">AAIBA</span>
-          </Link>
-          
+          <span className="text-2xl font-bold text-gray-900">AAIBA</span>
+        </Link>
+        
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-8">
             <Link to="/" className={`${location.pathname === '/' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
               Home
             </Link>
@@ -69,6 +69,9 @@ const Header = () => {
             </div>
             <Link to="/team" className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
               Team
+            </Link>
+            <Link to="/events" className={`${location.pathname === '/events' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+              Gallery
             </Link>
             <Link to="/contact" className={`${location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
               Contact
@@ -161,7 +164,7 @@ const Header = () => {
                 Contact
               </Link>
             </div>
-          </nav>
+        </nav>
         )}
       </div>
     </header>
@@ -479,7 +482,7 @@ const Contact = () => (
                   <a href="mailto:info@aaibalab.com" className="text-gray-600 hover:text-blue-600">
                     info@aaibalab.com
                   </a>
-                </div>
+              </div>
             </div>
 
               {/* Phone */}
@@ -1012,6 +1015,35 @@ const Courses = () => (
 );
 
 const App = () => {
+  // Event photos for the gallery
+  const eventPhotos = [
+    'https://bit.ly/3XcwnPi', // Replace with your actual image paths
+    'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaHPalexhDy2cqYtXK3N5C1UO6LD89hSojTs0Hf',
+    
+   // <!--'/img/event2.jpg',=-->
+
+  
+  ];
+
+  const Events=()=>(
+     <div className="max-w-7xl mx-auto px-4 py-12">
+          <h1 className="text-3xl font-bold mb-6">Gallery of Events</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
+            {eventPhotos.map((photo, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src={photo}
+                    alt={`Event ${index + 1}`}
+                     width="400" // Replace with your desired width
+                      // Replace with your desired height
+                    className="w-full h-80 object-cover"
+/>
+
+              </div>
+            ))}
+          </div>
+        </div>
+  );
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
@@ -1024,10 +1056,14 @@ const App = () => {
           <Route path="/courses/python" element={<CourseContent course={courseData.python} />} />
           <Route path="/courses/sql" element={<CourseContent course={courseData.sql} />} />
           <Route path="/courses/power-bi" element={<CourseContent course={courseData.powerBi} />} />
+          <Route path="/events" element={<Events/>} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<div className="p-20 text-center">Page Under Construction</div>} />
         </Routes>
+
+        {/* Gallery Section */}
+       
       </div>
     </Router>
   );
