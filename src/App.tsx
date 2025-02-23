@@ -157,6 +157,13 @@ const Header = () => {
                 Team
               </Link>
               <Link 
+                to="/events" 
+                className={`${location.pathname === '/events' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+              <Link 
                 to="/contact" 
                 className={`${location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
                 onClick={() => setIsMobileMenuOpen(false)}
