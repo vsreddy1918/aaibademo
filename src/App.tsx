@@ -10,6 +10,7 @@ const Header = () => {
   const location = useLocation();
   const [isCoursesOpen, setIsCoursesOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const coursesCloseTimer = React.useRef<number | null>(null);
   
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -37,12 +38,30 @@ const Header = () => {
             </Link>
             <div
               className="relative"
-              onMouseEnter={() => setIsCoursesOpen(true)}
-              onMouseLeave={() => setIsCoursesOpen(false)}
+              onMouseEnter={() => {
+                if (coursesCloseTimer.current) {
+                  clearTimeout(coursesCloseTimer.current);
+                  coursesCloseTimer.current = null;
+                }
+                setIsCoursesOpen(true);
+              }}
+              onMouseLeave={() => {
+                // delay closing slightly to allow pointer to move between button and menu
+                coursesCloseTimer.current = window.setTimeout(() => {
+                  setIsCoursesOpen(false);
+                  coursesCloseTimer.current = null;
+                }, 120);
+              }}
             >
               <button
                 className={`${location.pathname.startsWith('/courses') ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors flex items-center`}
-                onClick={() => setIsCoursesOpen((v) => !v)}
+                onClick={() => {
+                  if (coursesCloseTimer.current) {
+                    clearTimeout(coursesCloseTimer.current);
+                    coursesCloseTimer.current = null;
+                  }
+                  setIsCoursesOpen((v) => !v);
+                }}
                 aria-expanded={isCoursesOpen}
                 aria-haspopup="menu"
               >
@@ -53,17 +72,17 @@ const Header = () => {
               </button>
 
               {isCoursesOpen && (
-                <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 mt-1">
-                  <Link to="/courses" onClick={() => setIsCoursesOpen(false)} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2">
+                  <Link to="/courses" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     All Courses
                   </Link>
-                  <Link to="/courses/python" onClick={() => setIsCoursesOpen(false)} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                  <Link to="/courses/python" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     Python
                   </Link>
-                  <Link to="/courses/sql" onClick={() => setIsCoursesOpen(false)} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                  <Link to="/courses/sql" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     SQL
                   </Link>
-                  <Link to="/courses/power-bi" onClick={() => setIsCoursesOpen(false)} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                  <Link to="/courses/power-bi" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     Power BI
                   </Link>
                 </div>
