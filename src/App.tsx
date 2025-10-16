@@ -54,16 +54,16 @@ const Header = () => {
 
               {isCoursesOpen && (
                 <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 mt-1">
-                  <Link to="/courses" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                  <Link to="/courses" onClick={() => setIsCoursesOpen(false)} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     All Courses
                   </Link>
-                  <Link to="/courses/python" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                  <Link to="/courses/python" onClick={() => setIsCoursesOpen(false)} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     Python
                   </Link>
-                  <Link to="/courses/sql" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                  <Link to="/courses/sql" onClick={() => setIsCoursesOpen(false)} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     SQL
                   </Link>
-                  <Link to="/courses/power-bi" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+                  <Link to="/courses/power-bi" onClick={() => setIsCoursesOpen(false)} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     Power BI
                   </Link>
                 </div>
