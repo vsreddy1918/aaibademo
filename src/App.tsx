@@ -339,21 +339,6 @@ const WhatWeDo = () => (
               icon: "/assets/img/ai.png"
             },
             {
-              title: "Business Intelligence Tools",
-              description: "Creating dashboards and tools to visualize and interpret business performance.",
-              icon: "/assets/img/artificial-intelligence.png"
-            },
-            {
-              title: "Process Automation",
-              description: "Streamlining workflows and reducing manual effort through advanced automation techniques.",
-              icon: "/assets/img/automated.png"
-            },
-            {
-              title: "Cybersecurity Analytics",
-              description: "Enhancing security measures using data-driven risk analysis and threat prediction.",
-              icon: "/assets/img/cyber-security.png"
-            },
-            {
               title: "Customer Insights and Engagement",
               description: "Analyzing customer data to personalize experiences and boost engagement.",
               icon: "/assets/img/analystics.png"
@@ -367,11 +352,6 @@ const WhatWeDo = () => (
               title: "Cloud Computing Solutions",
               description: "Offering scalable cloud-based solutions to meet growing business demands.",
               icon: "/assets/img/server.png"
-            },
-            {
-              title: "Predictive Analytics",
-              description: "Utilizing data models to forecast trends and inform strategic decisions.",
-              icon: "/assets/img/predictive-chart.png"
             }
           ].map((service) => (
             <div 
