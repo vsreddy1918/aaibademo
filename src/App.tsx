@@ -35,23 +35,25 @@ const Header = () => {
             <Link to="/what-we-do" className={`${location.pathname === '/what-we-do' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
               What We Do
             </Link>
-            <div className="relative">
-              <button 
+            <div
+              className="relative"
+              onMouseEnter={() => setIsCoursesOpen(true)}
+              onMouseLeave={() => setIsCoursesOpen(false)}
+            >
+              <button
                 className={`${location.pathname.startsWith('/courses') ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors flex items-center`}
-                onMouseEnter={() => setIsCoursesOpen(true)}
-                onMouseLeave={() => setIsCoursesOpen(false)}
+                onClick={() => setIsCoursesOpen((v) => !v)}
+                aria-expanded={isCoursesOpen}
+                aria-haspopup="menu"
               >
                 Courses
                 <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </button>
+
               {isCoursesOpen && (
-                <div 
-                  className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 mt-1"
-                  onMouseEnter={() => setIsCoursesOpen(true)}
-                  onMouseLeave={() => setIsCoursesOpen(false)}
-                >
+                <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 mt-1">
                   <Link to="/courses" className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
                     All Courses
                   </Link>
@@ -927,7 +929,7 @@ const Courses = () => (
             image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80"
           },
           {
-            key: 'powerBi',
+            key: 'power-bi',
             course: courseData.powerBi,
             image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80"
           }
