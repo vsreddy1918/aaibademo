@@ -673,7 +673,7 @@ const Team = () => (
             {
               name: "K J Ananthakrishnan",
               role: "Project Associate\nEx: Infosys",
-              image: "/assets/img/Kj.jpg"
+              image: "/assets/img/team/Kj.jpg"
             }
           ].map((member) => (
             <div key={member.name} className="text-center">
