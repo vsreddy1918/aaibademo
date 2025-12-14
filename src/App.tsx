@@ -25,10 +25,10 @@ const Header = () => {
           />
           <span className="text-2xl font-bold text-gray-900">AAIBA</span>
         </Link>
-  <Link to="/" className="hidden lg:flex items-center space-x-2 ms-4">
+  <Link to="https://www.amrita.edu/school/business/coimbatore/"  target="_blank" className="hidden lg:flex items-center space-x-2 ms-4">
   <img 
-    src="/assets/img/amrita.png"
-    alt="Logo"
+    src="https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5SPTlBDMZSKcThVlXO36eNzMWwn70QHmBtaYd"
+    alt="amrita"
     className="w-40 xl:w-60 h-10"
   />
 </Link>
