@@ -16,7 +16,8 @@ const Header = () => {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
+       <div className="flex items-center justify-between">
+         <Link to="/" className="flex items-center space-x-2">
           <img 
             src="/assets/img/apple-touch-icon.png"
             alt="Logo"
@@ -24,7 +25,24 @@ const Header = () => {
           />
           <span className="text-2xl font-bold text-gray-900">AAIBA</span>
         </Link>
-        
+  <Link to="https://www.amrita.edu/school/business/coimbatore/"  target="_blank" className="hidden lg:flex items-center space-x-2 ms-4">
+  <img 
+    src="https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5SPTlBDMZSKcThVlXO36eNzMWwn70QHmBtaYd"
+    alt="amrita"
+    className="w-40 xl:w-60 h-10"
+  />
+</Link>
+
+  <Link
+    to="https://www.amridev.com/"
+    target="_blank"
+    className="hidden lg:flex items-center space-x-6 flex items-center space-x-2 ms-4"
+  >
+    <span className="text-xl  text-gray-900">AmriDev</span>
+  </Link>
+
+       </div>
+
           {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
             <Link to="/" className={`${location.pathname === '/' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
@@ -217,7 +235,7 @@ const Home = () => (
             Amrita Artificial Intelligence and Business Analytics Lab
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8">
-            We are a team of analysts and AI developers dedicated to building powerful applications that drive business success.
+We are a team of analysts and AI domain experts dedicated to advancing knowledge through research, pioneering innovation, delivering advanced professional training, and fostering academic excellence in AI and analytics.
           </p>
         </div>
       </div>
@@ -271,9 +289,7 @@ const About = () => (
               <div>
                 <h3 className="text-2xl font-bold mb-4">Mission</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  To empower students with the knowledge and skills in artificial intelligence and analytics through immersive, 
-                  value-based education. We aim to drive societal engagement and innovation by developing impactful solutions 
-                  that address real-world challenges and contribute to a sustainable future.
+                 To empower students with the knowledge and skills in artificial intelligence and analytics through immersive, value-based education. We aim to drive societal engagement by disseminating knowledge through impactful research, specialized training, and broader educational initiatives to address real-world challenges and contribute to a sustainable future.
                 </p>
               </div>
             </div>
@@ -282,14 +298,10 @@ const About = () => (
           {/* About Us Card */}
           <div className="bg-white p-8 rounded-xl shadow-md">
             <p className="text-gray-600 leading-relaxed">
-              The Amrita Artificial Intelligence and Business Analytics Lab (AAIBA LAB) is an initiative from the Amrita School 
-              of Business, Coimbatore. The lab's design provides a corporate working environment for students specializing in 
-              business analytics. The lab ensures intensive learning on AI and BA technologies through real-time projects, 
-              group discussions, training sessions, and guidance from industry experts and the school's alumni.
-              <br /><br />
-              It focuses on developing analytical solutions for micro, small, and medium enterprises (MSMEs), hospitals, 
-              clinical testing, and quality control. Currently, the lab offers courses on various fields of business analytics. 
-              Soon, the lab aims to make its analytics solutions available to the public through its own businesses.
+              The Amrita Artificial Intelligence and Business Analytics Lab (AAIBA LAB) is an initiative from the Amrita School of Business, Coimbatore. The lab's design provides a corporate working environment for students specializing in business analytics. The lab ensures intensive learning on AI and BA technologies through real-time projects, group discussions, training sessions, and guidance from industry experts and the school's alumni.
+              <br></br>
+It focuses on conducting impactful research and addressing real-world challenges in sectors such as micro, small, and medium enterprises (MSMEs), healthcare, clinical testing, and quality control. Currently, the lab offers courses on various fields of business analytics. The lab aims to disseminate its knowledge and research outcomes to the wider community through specialized training programs and broader educational initiatives.
+
             </p>
           </div>
         </div>
@@ -340,113 +352,147 @@ const About = () => (
 );
 
 const WhatWeDo = () => (
-  <div className="py-20 px-4">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-16 text-center">What We Do</h1>
-      
-      {/* Services Section */}
-      <section className="mb-20">
-        <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "Data Analytics Consulting",
-              description: "Providing expert guidance on leveraging data analytics to drive business decisions.",
-              icon: "/assets/img/interview.png"
-            },
-            {
-              title: "AI and Machine Learning Solutions",
-              description: "Developing custom AI models and machine learning algorithms tailored to your needs.",
-              icon: "/assets/img/ai.png"
-            },
-            {
-              title: "Customer Insights and Engagement",
-              description: "Analyzing customer data to personalize experiences and boost engagement.",
-              icon: "/assets/img/analystics.png"
-            },
-            {
-              title: "Training and Workshops",
-              description: "Providing hands-on training in data analytics, AI, and related technologies.",
-              icon: "/assets/img/training.png"
-            },
-            {
-              title: "Cloud Computing Solutions",
-              description: "Offering scalable cloud-based solutions to meet growing business demands.",
-              icon: "/assets/img/server.png"
-            }
-          ].map((service) => (
-            <div 
-              key={service.title} 
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center overflow-hidden"
-            >
-              <div className="p-6 flex-shrink-0">
-                <img 
-                  src={service.icon} 
-                  alt={service.title}
-                  className="w-20 h-20 object-contain"
-                />
-              </div>
-              <div className="p-6 flex-grow">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+<div className="py-20 px-4">
+  <div className="max-w-7xl mx-auto">
+    <h1 className="text-4xl font-bold mb-16 text-center">What We Do</h1>
 
-      {/* Projects Section */}
-      <section>
-        <h2 className="text-3xl font-bold mb-8 text-center">Our Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Apps for MSMEs",
-              description: "Streamlining operations and enhancing productivity for micro, small, and medium enterprises by leveraging advanced data analysis and AI tools to optimize workflow and enable real-time decision-making...",
-              image: "https://img.freepik.com/free-vector/business-apps-background-design_1300-54.jpg?t=st=1737185231~exp=1737188831~hmac=ca05ea564acb0db5f0a7ea660ed624fc429a5908e0d1b340e14cf17646338e03&w=826"
-            },
-            {
-              title: "Quality Control App",
-              description: "Ensuring superior product quality with innovative AI-based tools that predict defects, improve quality assurance processes, and minimize production downtime for manufacturing units...",
-              image: "https://img.freepik.com/free-vector/interaction-design-concept-illustration_114360-1507.jpg?t=st=1737185372~exp=1737188972~hmac=30273b9eb137b796eb7af1a7dffb9da0d3619a937a6c96fce27aa5043709eea3&w=826"
-            },
-            {
-              title: "Clinical Testing App",
-              description: "Revolutionizing clinical testing processes with cutting-edge technology, offering faster, accurate diagnostics while reducing operational costs for healthcare facilities...",
-              image: "https://img.freepik.com/free-vector/medical-booking-app_23-2148571935.jpg?t=st=1737185442~exp=1737189042~hmac=00ad05054453145d1ec4c2beeaf960486350801a50fd95ef15a86b36fa7e4e93&w=826"
-            },
-            {
-              title: "Hospital Management App",
-              description: "Optimizing hospital operations to deliver better patient care through efficient resource management, automated scheduling, and integrated data systems...",
-              image: "https://img.freepik.com/free-vector/medical-booking-app-concept_23-2148578378.jpg?t=st=1737185493~exp=1737189093~hmac=afcfaa9c6bfb3718400639e0ac3fd95f9167c729eb7125def4727109b37092a2&w=1380"
-            }
-          ].map((project) => (
-            <div 
-              key={project.title}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
-            >
-              <img 
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
+    {/* Core Focus Areas */}
+    <section className="mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            title: "Driving Innovation through Advanced Research in AI & Analytics",
+            description:
+              "We bridge the gap between foundational research and real-world application to solve critical challenges in MSMEs, healthcare, clinical testing, and quality control. Our work leverages advanced business analytics, Machine Learning, and Artificial Intelligence to transform organizational operations. We actively advance core methodologies by optimizing Retrieval-Augmented Generation (RAG), exploring graph augmentation and novel vector embedding strategies, and integrating advanced machine learning techniques with econometric models to derive deeper insights into consumer behavior from complex big data.",
+            icon: "/assets/img/ai.png",
+          },
+          {
+            title: "Elevating Expertise through Specialized Training Initiatives",
+            description:
+              "We empower academic and corporate communities through high-impact professional development programs. Our Faculty Development Programs (FDPs) strengthen academic rigor, while Executive and Management Development Programs (MDPs) equip industry professionals with data-driven competencies. These initiatives focus on advanced statistics, applied machine learning, comprehensive research methodology, and the principles of reproducible research.",
+            icon: "/assets/img/training.png",
+          },
+          {
+            title: "Accelerating Careers with High-Impact Certificate Programs",
+            description:
+              "Our short-term, high-intensity certificate programs rapidly equip students and professionals with end-to-end skills for a data-driven economy. Participants build strong foundations in statistics, research methodology, and business databases, followed by progressive training in Python and R. Advanced modules include multivariate analysis, machine learning, time series forecasting, deep learning, NLP, Generative AI, and Agentic AI, along with skills in data visualization and analytical communication.",
+            icon: "/assets/img/analystics.png",
+          },
+          {
+            title: "Developing Practical Business Solutions",
+            description:
+              "We believe academic insight achieves its full value when applied to real business challenges. While our lab focuses on foundational research and analytical frameworks, the development and deployment of commercial-grade AI and analytics solutions are handled through our spin-off entity, AmriDev.",
+            icon: "/assets/img/interview.png",
+          },
+        ].map((item) => (
+          <div
+            key={item.title}
+            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start"
+          >
+            <div className="p-6 flex-shrink-0">
+              <img
+                src={item.icon}
+                alt={item.title}
+                className="w-16 h-16 object-contain"
               />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
-                <a
-                  href="#"
-                  className="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
-                >
-                  Learn More
-                </a>
-              </div>
             </div>
-          ))}
-        </div>
-      </section>
-    </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-3 text-gray-900">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Projects Section (KEPT AS-IS) */}
+    <section>
+      <h2 className="text-3xl font-bold mb-8 text-center">Our Projects</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Apps for MSMEs",
+            description:
+              "Streamlining operations and enhancing productivity for micro, small, and medium enterprises by leveraging advanced data analysis and AI tools to optimize workflow and enable real-time decision-making...",
+            image:
+              "https://img.freepik.com/free-vector/business-apps-background-design_1300-54.jpg",
+          },
+          {
+            title: "Quality Control App",
+            description:
+              "Ensuring superior product quality with innovative AI-based tools that predict defects, improve quality assurance processes, and minimize production downtime for manufacturing units...",
+            image:
+              "https://img.freepik.com/free-vector/interaction-design-concept-illustration_114360-1507.jpg",
+          },
+          {
+            title: "Clinical Testing App",
+            description:
+              "Revolutionizing clinical testing processes with cutting-edge technology, offering faster, accurate diagnostics while reducing operational costs for healthcare facilities...",
+            image:
+              "https://img.freepik.com/free-vector/medical-booking-app_23-2148571935.jpg",
+          },
+          {
+            title: "Hospital Management App",
+            description:
+              "Optimizing hospital operations to deliver better patient care through efficient resource management, automated scheduling, and integrated data systems...",
+            image:
+              "https://img.freepik.com/free-vector/medical-booking-app-concept_23-2148578378.jpg",
+          },
+        ].map((project) => (
+          <div
+            key={project.title}
+            className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+              <p className="text-gray-600 mb-4 line-clamp-3">
+                {project.description}
+              </p>
+              <a
+                href="#"
+                className="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* AmriDev Link */}
+    <section className="text-center mt-16">
+      <p className="text-gray-700 text-lg">
+        For further information on developing impactful business solutions, please
+        visit{" "}
+        <a
+          href="https://www.amridev.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 font-semibold hover:underline"
+        >
+          AmriDev
+        </a>
+        .
+      </p>
+    </section>
   </div>
+</div>
+
+
+
 );
+
 
 const Contact = () => (
   <div className="py-20 px-4 bg-gray-50">
