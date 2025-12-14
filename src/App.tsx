@@ -580,6 +580,40 @@ const Team = () => (
     <div className="max-w-7xl mx-auto">
       <h1 className="text-4xl font-bold mb-8 text-center">Our Team</h1>
 
+ {/* Current Executive Members */}
+<div className="mb-16">
+  <h2 className="text-2xl font-bold mb-6 text-center">  Executive Members
+</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+    {[
+      {
+        name: "Malavika Venugopal",
+        role: "President",
+        image: "https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5JSkjtsuow6QibWOcMhNpyFGYPntAeEg53JmZ"
+      },
+      {
+        name: "Z Aadhil",
+        role: "Secretary",
+        image: "https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5o1y8MKIJXey9fjHUYSrkK0OA1vuNtRMnsIbi"
+      },
+      {
+        name: "Srivathsan V",
+        role: "Coordinator",
+        image: "https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5uxaqNYs1hne8aMsE42WNqfDJOSB9zI5lcdF3"
+      }
+    ].map((member) => (
+      <div key={member.name} className="text-center">
+        <img 
+          src={member.image} 
+          alt={member.name} 
+          className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
+        />
+        <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+        <p className="text-gray-600">{member.role}</p>
+      </div>
+    ))}
+  </div>
+</div>
       {/* Mentor Section */}
       <div className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-center">Our Mentors</h2>
@@ -667,73 +701,68 @@ const Team = () => (
         </div>
       </div>
 
-      {/* Executive Members Section */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">Executive Members</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {[
-            {
-              name: "Srinivasa Reddy",
-              role: "President & Coordinator\nAnalyst",
-              image: "/assets/img/team/sr.jpg"
-            },
-            {
-              name: "Sreyas Namboodiri",
-              role: "Secretary\nAnalyst\nEx: UST Global",
-              image: "/assets/img/team/sreyas.jpg"
-            }
-          ].map((member) => (
-            <div key={member.name} className="text-center">
-              <img 
-                src={member.image} 
-                alt={member.name} 
-                className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
-              />
-              <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-              <p className="text-gray-600 whitespace-pre-line">{member.role}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+{/* Alumni Section */}
+<div className='mb-16'>
+  <h2 className="text-2xl font-bold mb-6 text-center">AAIBA Lab Alumni</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {[
+      {
+        name: "Srinivasa Reddy",
+        tenure: "President (2024–26)",
+        role: "Former President & Coordinator (2024–26)",
+        image: "/assets/img/team/sr.jpg"
+      },
+      {
+        name: "Sreyas Namboodiri",
+        tenure: "Secretary (2024–26)",
+        role: "Former Secretary  (2024–26)\nEx: UST Global",
+        image: "/assets/img/team/sreyas.jpg"
+      },
+      {
+        name: "Harshitha Racharla",
+        tenure: "Analyst (2024–26)",
+        role: "Analyst (2024–26) \nEx: TCS",
+        image: "/assets/img/team/harshitha.jpg"
+      },
+      {
+        name: "Nanda Gopan",
+        tenure: "Analyst (2024–26)",
+        role: "Analyst (2024–26)",
+        image: "/assets/img/team/ng.jpg"
+      },
+      {
+        name: "Shruthi R Nair",
+        tenure: "Analyst (2024–26)",
+        role: "Analyst (2024–26)\nEx: Infosys",
+        image: "/assets/img/team/Shruthi R Nair.jpg"
+      },
+      {
+        name: "K J Ananthakrishnan",
+        tenure: "Analyst (2024–26)",
+        role: "Project Associate (2024–26)\nEx: Infosys",
+        image: "/assets/img/team/kjananthu.jpg"
+      }
+    ].map((member) => (
+      <div key={member.name} className="text-center">
+        <img 
+          src={member.image} 
+          alt={member.name} 
+          className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
+        />
+        <h3 className="text-xl font-bold mb-1">{member.name}</h3>
 
-      {/* Members Section */}
-      <div>
-        <h2 className="text-2xl font-bold mb-6">Members</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {[
-            {
-              name: "Harshitha Racharla",
-              role: "Analyst\nEx: TCS",
-              image: "/assets/img/team/harshitha.jpg"
-            },
-            {
-              name: "Nanda Gopan",
-              role: "Analyst",
-              image: "/assets/img/team/ng.jpg"
-            },
-            {
-              name: "Shruthi R Nair",
-              role: "Analyst\nEx: Infosys",
-              image: "/assets/img/team/Shruthi R Nair.jpg"
-            },
-            {
-              name: "K J Ananthakrishnan",
-              role: "Project Associate\nEx: Infosys",
-              image: "/assets/img/team/kjananthu.jpg"
-            }
-          ].map((member) => (
-            <div key={member.name} className="text-center">
-              <img 
-                src={member.image} 
-                alt={member.name} 
-                className="w-32 h-40 object-cover object-center rounded-lg mx-auto mb-3"
-              />
-              <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-              <p className="text-gray-600 whitespace-pre-line">{member.role}</p>
-            </div>
-          ))}
-        </div>
+      
+
+        <p className="text-gray-600 whitespace-pre-line">{member.role}</p>
       </div>
+    ))}
+  </div>
+</div>
+
+    
+
+
+
     </div>
   </div>
 );
