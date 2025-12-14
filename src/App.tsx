@@ -632,7 +632,7 @@ const Team = () => (
               image: "/assets/img/team/sr.jpg"
             },
             {
-              name: "Sreyas",
+              name: "Sreyas Namboodiri",
               role: "Secretary\nAnalyst\nEx: UST Global",
               image: "/assets/img/team/sreyas.jpg"
             }
@@ -671,9 +671,9 @@ const Team = () => (
               image: "/assets/img/team/Shruthi R Nair.jpg"
             },
             {
-              name: "Ramesh Krishna",
-              role: "Analyst\nEx: Cognizant",
-              image: "/assets/img/team/rk.jpg"
+              name: "K J Ananthakrishnan",
+              role: "Project Associate\nEx: Infosys",
+              image: "/assets/img/team/kjananthu.jpg"
             }
           ].map((member) => (
             <div key={member.name} className="text-center">
@@ -1025,6 +1025,7 @@ const App = () => {
    
     'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaH7JHIBWdt2KCmTxRHVfaSzWpriXjQE9c8vn0w',
     'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaHFYiN0HOC0a5PW3xfhwpbKHd6AE7LiIYUQ41j',
+
     
    // <!--'/img/event2.jpg',=-->
 
