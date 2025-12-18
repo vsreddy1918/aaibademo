@@ -19,7 +19,7 @@ const Header = () => {
        <div className="flex items-center justify-between">
          <Link to="/" className="flex items-center space-x-2">
           <img 
-            src="/assets/img/apple-touch-icon.png"
+            src="https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5zuZegfvTrmK5chlRLqFs6Cve4IQUgYifHSXb"
             alt="Logo"
             className="w-10 h-10"
           />
