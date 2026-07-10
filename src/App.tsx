@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Code, Database, Dna, FlaskRound, GraduationCap, Microscope, Rocket, Users, Linkedin, BookOpen, Clock, X, Menu } from 'lucide-react';
+import { Brain, Code, Database, Dna, FlaskRound, GraduationCap, Microscope, Rocket, Users, Linkedin, BookOpen, Clock, X, Menu, CheckCircle, Send, AlertCircle, Calendar, ChevronRight, Sparkles } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 // Import images if they are in the src directory
@@ -8,9 +8,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 // Components
 const Header = () => {
   const location = useLocation();
-  const [isCoursesOpen, setIsCoursesOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const coursesCloseTimer = React.useRef<number | null>(null);
   
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -54,58 +52,6 @@ const Header = () => {
             <Link to="/what-we-do" className={`${location.pathname === '/what-we-do' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
               What We Do
             </Link>
-            <div
-              className="relative"
-              onMouseEnter={() => {
-                if (coursesCloseTimer.current) {
-                  clearTimeout(coursesCloseTimer.current);
-                  coursesCloseTimer.current = null;
-                }
-                setIsCoursesOpen(true);
-              }}
-              onMouseLeave={() => {
-                // delay closing slightly to allow pointer to move between button and menu
-                coursesCloseTimer.current = window.setTimeout(() => {
-                  setIsCoursesOpen(false);
-                  coursesCloseTimer.current = null;
-                }, 120);
-              }}
-            >
-              <button
-                className={`${location.pathname.startsWith('/courses') ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors flex items-center`}
-                onClick={() => {
-                  if (coursesCloseTimer.current) {
-                    clearTimeout(coursesCloseTimer.current);
-                    coursesCloseTimer.current = null;
-                  }
-                  setIsCoursesOpen((v) => !v);
-                }}
-                aria-expanded={isCoursesOpen}
-                aria-haspopup="menu"
-              >
-                Courses
-                <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </button>
-
-              {isCoursesOpen && (
-                <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2">
-                  <Link to="/courses" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
-                    All Courses
-                  </Link>
-                  <Link to="/courses/python" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
-                    Python
-                  </Link>
-                  <Link to="/courses/sql" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
-                    SQL
-                  </Link>
-                  <Link to="/courses/power-bi" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
-                    Power BI
-                  </Link>
-                </div>
-              )}
-            </div>
             <Link to="/team" className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
               Team
             </Link>
@@ -155,39 +101,6 @@ const Header = () => {
               >
                 What We Do
               </Link>
-              <div className="space-y-2">
-                <div className="font-medium text-gray-900">Courses</div>
-                <div className="pl-4 space-y-2">
-                  <Link 
-                    to="/courses" 
-                    className="block text-gray-600 hover:text-blue-600"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    All Courses
-                  </Link>
-                  <Link 
-                    to="/courses/python" 
-                    className="block text-gray-600 hover:text-blue-600"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Python
-                  </Link>
-                  <Link 
-                    to="/courses/sql" 
-                    className="block text-gray-600 hover:text-blue-600"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    SQL
-                  </Link>
-                  <Link 
-                    to="/courses/power-bi" 
-                    className="block text-gray-600 hover:text-blue-600"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Power BI
-                  </Link>
-                </div>
-              </div>
               <Link 
                 to="/team" 
                 className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
@@ -210,7 +123,7 @@ const Header = () => {
                 Contact
               </Link>
             </div>
-        </nav>
+          </nav>
         )}
       </div>
     </header>
@@ -231,12 +144,95 @@ const Home = () => (
       
       <div className="relative h-full flex items-center justify-center text-center px-4">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Amrita Artificial Intelligence and Business Analytics Lab
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8">
-We are a team of analysts and AI domain experts dedicated to advancing knowledge through research, pioneering innovation, delivering advanced professional training, and fostering academic excellence in AI and analytics.
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 font-light max-w-3xl mx-auto leading-relaxed">
+            We are a team of analysts and AI domain experts dedicated to advancing knowledge through research, pioneering innovation, delivering advanced professional training, and fostering academic excellence in AI and analytics.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <a 
+              href="https://forms.gle/ipM9ZfDu26H2yETw5" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2"
+            >
+              <GraduationCap className="w-5 h-5 animate-bounce" />
+              <span>Join Lab (MBA 1st Years)</span>
+            </a>
+            <Link 
+              to="/about" 
+              className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full font-semibold text-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 flex items-center justify-center"
+            >
+              Discover More
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Recruitment Highlight Section */}
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-blue-600 font-bold uppercase tracking-wider text-sm bg-blue-50 px-4 py-1.5 rounded-full inline-block mb-3">
+            Recruitment Active 2026
+          </span>
+          <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
+            Join the Core Student Team
+          </h2>
+          <p className="text-lg text-gray-600">
+            We are recruiting MBA First Year students to officially join AAIBA Lab as Associate Student Analysts. Build elite competencies and jumpstart your career.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-16">
+          {/* Why Join Card */}
+          <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div>
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <Sparkles className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Elite Learning & Training</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Gain hands-on skills in corporate analytics projects. Access expert-led, intense training modules on Python, SQL, Power BI, and advanced machine learning models.
+              </p>
+            </div>
+            <div className="text-blue-600 font-medium flex items-center gap-1 mt-auto">
+              <span>Learn advanced tools</span>
+              <ChevronRight className="w-4 h-4" />
+            </div>
+          </div>
+
+          {/* Core Projects Card */}
+          <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div>
+              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                <Database className="w-6 h-6 text-indigo-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Real Corporate Exposure</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Work directly on MSMEs and healthcare apps developed under the guidance of school mentors, industry directors, and principal AI area chairs.
+              </p>
+            </div>
+            <div className="text-indigo-600 font-medium flex items-center gap-1 mt-auto">
+              <span>Work on live apps</span>
+              <ChevronRight className="w-4 h-4" />
+            </div>
+          </div>
+
+          {/* Mentorship Card */}
+          <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div>
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                <Users className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Dedicated Mentorship</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Get weekly feedback sessions, resume profiling, and direct referrals from distinguished AAIBA Lab alumni working across leading analytics MNCs.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
