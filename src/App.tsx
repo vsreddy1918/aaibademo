@@ -1,6 +1,8 @@
-import React from 'react';
-import { Brain, Code, Database, Dna, FlaskRound, GraduationCap, Microscope, Rocket, Users, Linkedin, BookOpen, Clock, X, Menu } from 'lucide-react';
+import React, { useState } from 'react';
+import { Brain, Code, Database, Dna, FlaskRound, GraduationCap, Microscope, Rocket, Users, Linkedin, BookOpen, Clock, X, Menu, CheckCircle, Send, AlertCircle, Calendar, ChevronRight, Sparkles, ArrowRight, MapPin, Building2, ExternalLink, Download, Eye } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import FacultyDevelopmentProgram from './pages/FacultyDevelopmentProgram';
+import myAsbLogo from './assets/img/MYASBlogo.jpg';
 
 // Import images if they are in the src directory
 
@@ -8,111 +10,80 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 // Components
 const Header = () => {
   const location = useLocation();
-  const [isCoursesOpen, setIsCoursesOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const coursesCloseTimer = React.useRef<number | null>(null);
   
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-       <div className="flex items-center justify-between">
-         <Link to="/" className="flex items-center space-x-2">
-          <img 
-            src="https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5zuZegfvTrmK5chlRLqFs6Cve4IQUgYifHSXb"
-            alt="Logo"
-            className="w-10 h-10"
-          />
-          <span className="text-2xl font-bold text-gray-900">AAIBA</span>
-        </Link>
-  <Link to="https://www.amrita.edu/school/business/coimbatore/"  target="_blank" className="hidden lg:flex items-center space-x-2 ms-4">
-  <img 
-    src="https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5SPTlBDMZSKcThVlXO36eNzMWwn70QHmBtaYd"
-    alt="amrita"
-    className="w-40 xl:w-60 h-10"
-  />
-</Link>
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center space-x-2">
+              <img 
+                src="https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5zuZegfvTrmK5chlRLqFs6Cve4IQUgYifHSXb"
+                alt="Logo"
+                className="w-10 h-10"
+              />
+              <span className="text-2xl font-bold text-gray-900">AAIBA</span>
+            </Link>
 
-  <Link
-    to="https://www.amridev.com/"
-    target="_blank"
-    className="hidden lg:flex items-center space-x-6 flex items-center space-x-2 ms-4"
-  >
-    <span className="text-xl  text-gray-900">AmriDev</span>
-  </Link>
+            <Link to="https://www.amrita.edu/school/business/coimbatore/" target="_blank" className="hidden lg:flex items-center space-x-2 ms-4">
+              <img 
+                src="https://8khr67gk04.ufs.sh/f/zIEzptvTrmK5SPTlBDMZSKcThVlXO36eNzMWwn70QHmBtaYd"
+                alt="amrita"
+                className="w-40 xl:w-60 h-10"
+              />
+            </Link>
 
-       </div>
+            <div className="hidden lg:block h-6 w-px bg-gray-200 ms-3" />
+
+            <Link
+              to="https://www.amridev.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:flex items-center space-x-2 ms-3 group hover:opacity-90 transition-opacity"
+              title="Visit AmriDev"
+            >
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center shadow-sm border border-slate-700/50 group-hover:border-blue-500 transition-colors">
+                <Code className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" strokeWidth={2.5} />
+              </div>
+              <div className="flex items-baseline">
+                <span className="text-xl font-extrabold tracking-tight text-gray-900">Amri</span>
+                <span className="text-xl font-extrabold tracking-tight text-blue-600">Dev</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 ml-0.5"></span>
+              </div>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-            <Link to="/" className={`${location.pathname === '/' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <Link to="/" className={`${location.pathname === '/' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors font-medium`}>
               Home
             </Link>
-            <Link to="/about" className={`${location.pathname === '/about' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+            <Link to="/about" className={`${location.pathname === '/about' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors font-medium`}>
               About
             </Link>
-            <Link to="/what-we-do" className={`${location.pathname === '/what-we-do' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+            <Link to="/what-we-do" className={`${location.pathname === '/what-we-do' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors font-medium`}>
               What We Do
             </Link>
-            <div
-              className="relative"
-              onMouseEnter={() => {
-                if (coursesCloseTimer.current) {
-                  clearTimeout(coursesCloseTimer.current);
-                  coursesCloseTimer.current = null;
-                }
-                setIsCoursesOpen(true);
-              }}
-              onMouseLeave={() => {
-                // delay closing slightly to allow pointer to move between button and menu
-                coursesCloseTimer.current = window.setTimeout(() => {
-                  setIsCoursesOpen(false);
-                  coursesCloseTimer.current = null;
-                }, 120);
-              }}
-            >
-              <button
-                className={`${location.pathname.startsWith('/courses') ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors flex items-center`}
-                onClick={() => {
-                  if (coursesCloseTimer.current) {
-                    clearTimeout(coursesCloseTimer.current);
-                    coursesCloseTimer.current = null;
-                  }
-                  setIsCoursesOpen((v) => !v);
-                }}
-                aria-expanded={isCoursesOpen}
-                aria-haspopup="menu"
-              >
-                Courses
-                <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </button>
-
-              {isCoursesOpen && (
-                <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2">
-                  <Link to="/courses" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
-                    All Courses
-                  </Link>
-                  <Link to="/courses/python" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
-                    Python
-                  </Link>
-                  <Link to="/courses/sql" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
-                    SQL
-                  </Link>
-                  <Link to="/courses/power-bi" onClick={() => { if (coursesCloseTimer.current) { clearTimeout(coursesCloseTimer.current); coursesCloseTimer.current = null; } setIsCoursesOpen(false); }} className="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600">
-                    Power BI
-                  </Link>
-                </div>
-              )}
-            </div>
-            <Link to="/team" className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+            <Link to="/team" className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors font-medium`}>
               Team
             </Link>
-            <Link to="/events" className={`${location.pathname === '/events' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+            <Link to="/events" className={`${location.pathname === '/events' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors font-medium`}>
               Gallery
             </Link>
-            <Link to="/contact" className={`${location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}>
+            <Link 
+              to="/fdp-2026" 
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all shadow-sm ${
+                location.pathname.includes('fdp') 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>FDP 2026</span>
+              <span className="bg-amber-400 text-slate-900 text-[10px] px-1.5 py-0.2 rounded font-black tracking-wide">NEW</span>
+            </Link>
+            <Link to="/contact" className={`${location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors font-medium`}>
               Contact
             </Link>
           </nav>
@@ -155,39 +126,6 @@ const Header = () => {
               >
                 What We Do
               </Link>
-              <div className="space-y-2">
-                <div className="font-medium text-gray-900">Courses</div>
-                <div className="pl-4 space-y-2">
-                  <Link 
-                    to="/courses" 
-                    className="block text-gray-600 hover:text-blue-600"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    All Courses
-                  </Link>
-                  <Link 
-                    to="/courses/python" 
-                    className="block text-gray-600 hover:text-blue-600"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Python
-                  </Link>
-                  <Link 
-                    to="/courses/sql" 
-                    className="block text-gray-600 hover:text-blue-600"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    SQL
-                  </Link>
-                  <Link 
-                    to="/courses/power-bi" 
-                    className="block text-gray-600 hover:text-blue-600"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Power BI
-                  </Link>
-                </div>
-              </div>
               <Link 
                 to="/team" 
                 className={`${location.pathname === '/team' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
@@ -203,23 +141,162 @@ const Header = () => {
                 Gallery
               </Link>
               <Link 
+                to="/fdp-2026" 
+                className="flex items-center justify-between p-3 rounded-xl bg-blue-50 text-blue-700 font-bold border border-blue-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-500" />
+                  Two-Day FDP (AI Research)
+                </span>
+                <span className="text-[10px] bg-amber-400 text-slate-900 px-2 py-0.5 rounded font-black">NEW</span>
+              </Link>
+              <Link 
                 to="/contact" 
                 className={`${location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-600 transition-colors`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contact
               </Link>
+              <a 
+                href="https://www.amridev.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 pt-2 border-t border-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <div className="w-7 h-7 rounded-md bg-slate-900 flex items-center justify-center">
+                  <Code className="w-3.5 h-3.5 text-blue-400" strokeWidth={2.5} />
+                </div>
+                <div className="flex items-baseline">
+                  <span className="text-base font-extrabold tracking-tight text-gray-900">Amri</span>
+                  <span className="text-base font-extrabold tracking-tight text-blue-600">Dev</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 ml-0.5"></span>
+                </div>
+              </a>
             </div>
-        </nav>
+          </nav>
         )}
       </div>
     </header>
   );
 };
 
-const Home = () => (
-  <div>
-    <section className="relative h-screen">
+const Home = () => {
+  const [showEventPopup, setShowEventPopup] = useState(true);
+
+  return (
+    <div>
+      {/* Event Pop-up Modal */}
+      {showEventPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div 
+            className="relative w-full max-w-lg bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="p-6 pb-4 border-b border-gray-100 relative">
+              <button
+                onClick={() => setShowEventPopup(false)}
+                className="absolute top-5 right-5 p-1 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full mb-2">
+                Faculty Development Program
+              </span>
+
+              <h3 className="text-xl font-bold text-gray-900 leading-snug">
+                Business Research Automation with AI and Generative Models
+              </h3>
+              <p className="text-xs text-gray-500 mt-1">
+                Amrita School of Business & AAIBA Lab • In Association with Course5 Intelligence (C5i)
+              </p>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 space-y-4 text-sm text-gray-600">
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div className="bg-gray-50 p-3 rounded-md border border-gray-100">
+                  <div className="text-gray-500">Dates & Venue</div>
+                  <strong className="text-gray-900 block mt-0.5">10–11 Dec 2026</strong>
+                  <span className="text-gray-500">ASB, Coimbatore</span>
+                </div>
+                <div className="bg-blue-50/60 p-3 rounded-md border border-blue-100">
+                  <div className="text-blue-700 font-medium">Early Bird Fee</div>
+                  <strong className="text-blue-900 text-base block mt-0.5">₹1,750</strong>
+                  <span className="text-blue-600 text-[11px]">Till 30 Nov 2026</span>
+                </div>
+              </div>
+
+              <p className="text-xs leading-relaxed text-gray-600">
+                Two days of expert-led sessions on automated data acquisition, LLM evidence synthesis, and AI research workflows for management faculty and scholars.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Link
+                  to="/fdp-2026#register"
+                  onClick={() => setShowEventPopup(false)}
+                  className="flex-1 py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors text-xs text-center flex items-center justify-center gap-1.5"
+                >
+                  <span>Register Now</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  to="/fdp-2026"
+                  onClick={() => setShowEventPopup(false)}
+                  className="flex-1 py-2.5 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold rounded-md transition-colors text-xs text-center flex items-center justify-center gap-1.5"
+                >
+                  <BookOpen className="w-4 h-4 text-blue-600" />
+                  <span>View Details</span>
+                </Link>
+              </div>
+
+              {/* Brochure Quick Access */}
+              <div className="flex items-center justify-center gap-4 pt-3 border-t border-gray-100 text-xs">
+                <a
+                  href="/BR_FDP_Brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline font-medium flex items-center gap-1"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>View Brochure (PDF)</span>
+                </a>
+                <span className="text-gray-300">•</span>
+                <a
+                  href="/BR_FDP_Brochure.pdf"
+                  download="BR_FDP_Brochure.pdf"
+                  className="text-gray-700 hover:text-blue-600 hover:underline font-medium flex items-center gap-1"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download PDF</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Re-Open Badge if dismissed */}
+      {!showEventPopup && (
+        <div className="fixed bottom-6 right-6 z-40">
+          <button
+            onClick={() => setShowEventPopup(true)}
+            className="flex items-center gap-2 bg-white text-gray-800 px-4 py-2.5 rounded-full shadow-lg border border-gray-200 hover:border-blue-500 transition-all text-xs font-semibold"
+          >
+            <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+            <span>FDP 2026 (AI Research)</span>
+            <span className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[11px]">View</span>
+          </button>
+        </div>
+      )}
+
+      <section className="relative h-screen">
       <div className="absolute inset-0">
         <img 
           src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80"
@@ -231,17 +308,87 @@ const Home = () => (
       
       <div className="relative h-full flex items-center justify-center text-center px-4">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Amrita Artificial Intelligence and Business Analytics Lab
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8">
-We are a team of analysts and AI domain experts dedicated to advancing knowledge through research, pioneering innovation, delivering advanced professional training, and fostering academic excellence in AI and analytics.
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 font-light max-w-3xl mx-auto leading-relaxed">
+            We are a team of analysts and AI domain experts dedicated to advancing knowledge through research, pioneering innovation, delivering advanced professional training, and fostering academic excellence in AI and analytics.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <Link 
+              to="/about" 
+              className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center"
+            >
+              Discover More
+            </Link>
+            <Link 
+              to="/fdp-2026" 
+              className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full font-semibold text-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+            >
+              <Calendar className="w-5 h-5 text-amber-300" />
+              <span>FDP 2026 Event</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
+
+    {/* Flagship Event Banner on Landing Page */}
+    <section className="bg-white py-6 px-4 border-y border-gray-200 shadow-sm">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <Calendar className="w-6 h-6" />
+          </div>
+          <div>
+            <div className="flex flex-wrap items-center gap-2 mb-1">
+              <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                Upcoming FDP
+              </span>
+              <span className="text-xs text-gray-500">10–11 December 2026 • ASB Coimbatore</span>
+              <span className="text-xs text-green-700 font-medium">Early Bird: ₹1,750</span>
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+              Business Research Automation with AI and Generative Models
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
+              Organized by AAIBA Lab, Amrita School of Business in Association with Course5 Intelligence (C5i)
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto flex-shrink-0">
+          <a
+            href="/BR_FDP_Brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 lg:flex-none px-4 py-2.5 bg-white hover:bg-gray-50 text-blue-600 border border-blue-600 text-xs font-semibold rounded-md transition-colors text-center flex items-center justify-center gap-1.5"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            <span>View Brochure</span>
+          </a>
+          <a
+            href="/BR_FDP_Brochure.pdf"
+            download="BR_FDP_Brochure.pdf"
+            className="flex-1 lg:flex-none px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-md transition-colors text-center flex items-center justify-center gap-1.5"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Download PDF</span>
+          </a>
+          <Link
+            to="/fdp-2026"
+            className="flex-1 lg:flex-none px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-md transition-colors text-center flex items-center justify-center gap-1.5"
+          >
+            <span>View & Register</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+
   </div>
-);
+  );
+};
 
 const About = () => (
   <div className="py-20 px-4">
@@ -416,6 +563,13 @@ const WhatWeDo = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
           {
+            title: "myASB",
+            description:
+              "An integrated mentor-mentee and academic platform built by AAIBA Lab to streamline student mentoring, academic progress tracking, and institutional collaborative learning.",
+            image: myAsbLogo,
+            link: "https://www.myasb.in",
+          },
+          {
             title: "Apps for MSMEs",
             description:
               "Streamlining operations and enhancing productivity for micro, small, and medium enterprises by leveraging advanced data analysis and AI tools to optimize workflow and enable real-time decision-making...",
@@ -446,20 +600,28 @@ const WhatWeDo = () => (
         ].map((project) => (
           <div
             key={project.title}
-            className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
+            className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 flex flex-col justify-between"
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-              <p className="text-gray-600 mb-4 line-clamp-3">
-                {project.description}
-              </p>
+            <div>
+              <div className="w-full h-48 bg-gray-50 flex items-center justify-center p-3 border-b border-gray-100 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                <p className="text-gray-600 mb-4 line-clamp-3">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+            <div className="px-6 pb-6 pt-0">
               <a
-                href="#"
+                href={project.link || "#"}
+                target={project.link ? "_blank" : undefined}
+                rel={project.link ? "noopener noreferrer" : undefined}
                 className="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
               >
                 Learn More
@@ -1094,37 +1256,79 @@ const Courses = () => (
 
 const App = () => {
   // Event photos for the gallery
-  const eventPhotos = [
-    'https://bit.ly/3XcwnPi', // Replace with your actual image paths
-    'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaHPalexhDy2cqYtXK3N5C1UO6LD89hSojTs0Hf',
-   
-    'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaH7JHIBWdt2KCmTxRHVfaSzWpriXjQE9c8vn0w',
-    'https://6myrjj6clb.ufs.sh/f/3NGr8wvK5PaHFYiN0HOC0a5PW3xfhwpbKHd6AE7LiIYUQ41j',
-
-    
-   // <!--'/img/event2.jpg',=-->
-
-  
+  const galleryEvents = [
+    {
+      title: "AAIBA 2026–2027 – Introduction Session for Juniors",
+      image: "/gallery/intro-session-juniors.jpg",
+      category: "Orientation & Mentoring",
+    },
+    {
+      title: "AAIBA Inauguration – Conclave CEO Connect",
+      image: "/gallery/conclave-ceo-connect.jpeg",
+      category: "Leadership Connect",
+    },
+    {
+      title: "Conclave – AAIBA Stall",
+      image: "/gallery/conclave-aaiba-stall.jpeg",
+      category: "Exhibition & Showcase",
+    },
+    {
+      title: "MyASB Inauguration",
+      image: "/gallery/myasb-inauguration.jpeg",
+      category: "Platform Launch",
+    },
+    {
+      title: "Portfolio Development Sessions",
+      image: "/gallery/portfolio-development.jpg",
+      category: "Skill Workshop",
+    },
+    {
+      title: "Python Training Session",
+      image: "/gallery/python-training.jpg",
+      category: "Hands-on Technical Training",
+    },
   ];
 
-  const Events=()=>(
-     <div className="max-w-7xl mx-auto px-4 py-12">
-          <h1 className="text-3xl font-bold mb-6">Gallery of Events</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
-            {eventPhotos.map((photo, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <img
-                  src={photo}
-                    alt={`Event ${index + 1}`}
-                     width="400" // Replace with your desired width
-                      // Replace with your desired height
-                    className="w-full h-80 object-cover"
-/>
-
-              </div>
-            ))}
-          </div>
+  const Events = () => (
+    <div className="py-16 px-4 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">Gallery of Events</h1>
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+            Highlights from AAIBA Lab events, workshops, student mentoring sessions, and flagship industry connects (2026–2027).
+          </p>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {galleryEvents.map((event, index) => (
+            <div 
+              key={index} 
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col group"
+            >
+              <div className="w-full h-64 bg-gray-100 overflow-hidden relative">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm">
+                  {event.category}
+                </span>
+              </div>
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <h3 className="text-lg font-bold text-gray-900 leading-snug">
+                  {event.title}
+                </h3>
+                <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                  <span>AAIBA Lab</span>
+                  <span className="text-blue-600 font-medium">2026–2027</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
   return (
     <Router>
@@ -1139,6 +1343,9 @@ const App = () => {
           <Route path="/courses/sql" element={<CourseContent course={courseData.sql} />} />
           <Route path="/courses/power-bi" element={<CourseContent course={courseData.powerBi} />} />
           <Route path="/events" element={<Events/>} />
+          <Route path="/events/business-research-fdp" element={<FacultyDevelopmentProgram />} />
+          <Route path="/fdp-2026" element={<FacultyDevelopmentProgram />} />
+          <Route path="/events/fdp" element={<FacultyDevelopmentProgram />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<div className="p-20 text-center">Page Under Construction</div>} />
